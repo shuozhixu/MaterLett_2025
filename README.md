@@ -19,7 +19,11 @@ Note: if you use sbatch files from [LAMMPSatOU](https://github.com/ANSHURAJ11/LA
 
 	#SBATCH --time=200:00:00
 	#SBATCH --ntasks=32
-	
+
+## One question
+
+Elastic constants and LSR can be used directly in the CPFEM model. But can we use MD to inform the dislocation/precipitate interactions in CPFEM?
+
 ## Build the random structure
 
 Al0.3CoCrFeNi has an FCC lattice, according to [this paper](https://doi.org/10.1016/j.actamat.2022.118600). 
