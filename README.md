@@ -44,17 +44,17 @@ Use the [EAM potential](https://www.ctcms.nist.gov/potentials/entry/2020--Farkas
 
 Follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024).
 
-## GSFE
-
-Calculate the GSFE at 0 K. Follow two previous GitHub repositories, led by [Romero](https://github.com/shuozhixu/FLAM2020-GSFE) and [Mubassira](https://github.com/shuozhixu/Modelling_2024), respectively. Consider the randomness of elements.
-
 ## LSR
 
 Calculate the LSR of both edge and screw dislocations at 0 K. Follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR). Consider the randomness of elements.
 
+## GSFE
+
+Calculate the GSFE at 0 K. Follow two previous GitHub repositories, led by [Romero](https://github.com/shuozhixu/FLAM2020-GSFE) and [Mubassira](https://github.com/shuozhixu/Modelling_2024), respectively. Consider the randomness of elements.
+
 ## Dislocation/obstacle interactions
 
-Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the following calcculations at 300 K and 1033 K, respectively. Consider three types of obstacles: void, B2 precipitate, and L12 precipitate.
+Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the following calcculations at 300 K and 1033 K, respectively. Consider three types of obstacles: void, B2 precipitate, and L12 precipitate. Answer this question: how is the standard deviation in dislocation/obstacle interaction strength compared with that in LSR?
 
 ### Dislocation/void interactions
 
