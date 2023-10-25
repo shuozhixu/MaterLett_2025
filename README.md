@@ -40,7 +40,7 @@ In this alloy, the CSRO effect has been studied in [a previous paper](https://do
 
 ## Lattice parameters and elastic constants
 
-Use the [EAM potential](https://www.ctcms.nist.gov/potentials/entry/2020--Farkas-D-Caro-A--Fe-Ni-Cr-Co-Al/2020--Farkas-D--Fe-Ni-Cr-Co-Al--LAMMPS--ipr1.html). Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 1033 K. The last is the maximum temperature used in [the creep experiments](https://doi.org/10.1016/j.actamat.2022.118600). You decide what intermediate temperatures you will study.
+Use the [EAM potential](https://www.ctcms.nist.gov/potentials/entry/2020--Farkas-D-Caro-A--Fe-Ni-Cr-Co-Al/2020--Farkas-D--Fe-Ni-Cr-Co-Al--LAMMPS--ipr1.html). Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 1033 K. The last is the maximum temperature used in [the creep experiments](https://doi.org/10.1016/j.actamat.2022.118600). You decide what intermediate temperatures you will study, based on the need of CPFEM.
 
 Follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024).
 
@@ -54,7 +54,7 @@ Calculate the LSR of both edge and screw dislocations at 0 K. Follow [a previous
 
 ## Dislocation/obstacle interactions
 
-Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020).
+Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the following calcculations at 300 K and 1033 K, respectively. Consider three types of obstacles: void, B2 precipitate, and L12 precipitate.
 
 ### Dislocation/void interactions
 
