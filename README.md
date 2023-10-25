@@ -2,7 +2,7 @@
 
 ## Foreword
 
-The purpose of this project is to calculate the basic structural parameters (including lattice parameter and elastic constants), generalized stacking fault energies (GSFE), and local slip resistances (LSR) in random Al0.3CoCrFeNi MPEA.
+The purpose of this project is to calculate the basic structural parameters (including lattice parameter and elastic constants), generalized stacking fault energies (GSFE), local slip resistances (LSR), and dislocation/obstacle interaction strengths in random Al0.3CoCrFeNi MPEA.
 
 ## LAMMPS
 
