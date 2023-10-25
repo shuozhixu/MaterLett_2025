@@ -20,14 +20,40 @@ Note: if you use sbatch files from [LAMMPSatOU](https://github.com/ANSHURAJ11/LA
 	#SBATCH --time=200:00:00
 	#SBATCH --ntasks=32
 	
-## Alloys
+## Build the random structure
 
-### Al<sub>0.3</sub>CoCrFeNi
+Al0.3CoCrFeNi has an FCC lattice, according to [this paper](https://doi.org/10.1016/j.actamat.2022.118600). 
 
-It has an FCC lattice, according to [this paper](https://doi.org/10.1016/j.actamat.2022.118600). Use the [EAM potential](https://www.ctcms.nist.gov/potentials/entry/2020--Farkas-D-Caro-A--Fe-Ni-Cr-Co-Al/2020--Farkas-D--Fe-Ni-Cr-Co-Al--LAMMPS--ipr1.html). Thus, it does not requrie the M3GNet package.
+Build the random structure using Atomsk.
 
-Build the random structure and two CSRO structures annealed at 300 K and 973 K, respectively.
+In this alloy, the CSRO effect has been studied in [a previous paper](https://doi.org/10.1016/j.matdes.2022.111214), so we focus on the random structure. Also, the creep temperature is high (973-1033K), at which the CSRO is negligible.
 
-Calculate the lattice parameters and elastic constants of both random and 973KMDMC structures at 0 K and 973 K.
+[This paper](https://doi.org/10.1016/j.msea.2021.141253) used another potential to calculate some properties of this alloy. Please read it.
 
-Calculate the GSFE and LSR in both random and 973KMDMC structures at 0 K.
+## Lattice parameters and elastic constants
+
+Use the [EAM potential](https://www.ctcms.nist.gov/potentials/entry/2020--Farkas-D-Caro-A--Fe-Ni-Cr-Co-Al/2020--Farkas-D--Fe-Ni-Cr-Co-Al--LAMMPS--ipr1.html). Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 1033 K. The last is the maximum temperature used in [the creep experiments](https://doi.org/10.1016/j.actamat.2022.118600). You decide what intermediate temperatures you will study.
+
+Follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024).
+
+## GSFE
+
+Calculate the GSFE at 0 K. Follow two previous GitHub repositories, led by [Romero](https://github.com/shuozhixu/FLAM2020-GSFE) and [Mubassira](https://github.com/shuozhixu/Modelling_2024), respectively. Consider the randomness of elements.
+
+## LSR
+
+Calculate the LSR of both edge and screw dislocations at 0 K. Follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR). Consider the randomness of elements.
+
+## Dislocation/obstacle interactions
+
+Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020).
+
+### Dislocation/void interactions
+
+Read [these papers](https://drive.google.com/drive/folders/1uM6CM59NrHx7o2ZFFyyN85nS_ZRpRsa4?usp=sharing) which are on dislocatino/void interactions in metals using atomistic simulations.
+
+### Dislocation/precipitate interactions
+
+There are many papers on this topic too. For example, a previous paper by [Liaw and colleagues](https://doi.org/10.1016/j.ijplas.2020.102819).
+
+For this alloy, please consider both B2 precipitate and L12 precipitate.
