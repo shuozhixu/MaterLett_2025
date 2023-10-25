@@ -20,13 +20,15 @@ Note: if you use sbatch files from [LAMMPSatOU](https://github.com/ANSHURAJ11/LA
 	#SBATCH --time=200:00:00
 	#SBATCH --ntasks=32
 
-## One question
+## Discussion
 
 Elastic constants and LSR can be used directly in the CPFEM model. But can we use MD to inform the dislocation/precipitate interactions in CPFEM?
 
 If no, we should fit those precipitate-related parameters in CPFEM from experiments.
 
 Regardless, we should run MD simulations of dislocation/obstacle interactions. Otherwise, it won't make a good paper.
+
+Think about this optin: first, run MD simulations to obtain parameters [1,3,5,16] for CPFEM; second, run CPFEM tensile and creep simulations to fit other parameters; third, run CPFEM creep simulations; fourth, finish all other MD simulations and write an MD paper; fifth, finish all CPFEM simulations and write a CPFEM paper (which will cite the MD paper).
 
 ## Build the random structure
 
