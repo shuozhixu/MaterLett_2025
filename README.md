@@ -20,6 +20,13 @@ Note: if you use sbatch files from [LAMMPSatOU](https://github.com/ANSHURAJ11/LA
 	#SBATCH --time=200:00:00
 	#SBATCH --ntasks=32
 
+There are several interatomic potentials for this alloy. Let's focus on the following two:
+
+- The first one is `AlCoCrFeNi_Zhou04.eam.alloy`. If you use it, cite [this paper](http://dx.doi.org/10.1016/S1359-6454(01)00287-7) and [this paper](http://dx.doi.org/10.1103/PhysRevB.77.214108).
+- The second one is `FeNiCrCoAl-heaweight.setfl`. If you use it, cite [this paper](https://doi.org/10.1557/jmr.2020.294).
+
+Both potential files can be found in this GitHub repository.
+
 ## Discussion
 
 Elastic constants and LSR can be used directly in the CPFEM model. But can we use MD to inform the dislocation/precipitate interactions in CPFEM?
@@ -42,7 +49,7 @@ In this alloy, the CSRO effect has been studied in [a previous paper](https://do
 
 ## Lattice parameters and elastic constants
 
-Use the [EAM potential](https://www.ctcms.nist.gov/potentials/entry/2020--Farkas-D-Caro-A--Fe-Ni-Cr-Co-Al/2020--Farkas-D--Fe-Ni-Cr-Co-Al--LAMMPS--ipr1.html). Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 1033 K. The last is the maximum temperature used in [the creep experiments](https://doi.org/10.1016/j.actamat.2022.118600). You decide what intermediate temperatures you will study, based on the need of CPFEM.
+Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 1033 K. The last is the maximum temperature used in [the creep experiments](https://doi.org/10.1016/j.actamat.2022.118600). You decide what intermediate temperatures you will study, based on the need of CPFEM.
 
 Follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024).
 
