@@ -54,13 +54,13 @@ Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 1033 
 
 Follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024).
 
-## LSR
-
-Calculate the LSR of both edge and screw dislocations at 0 K. Follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR). Consider the randomness of elements.
-
 ## GSFE
 
 Calculate the GSFE at 0 K. Follow two previous GitHub repositories, led by [Romero](https://github.com/shuozhixu/FLAM2020-GSFE) and [Mubassira](https://github.com/shuozhixu/Modelling_2024), respectively. Consider the randomness of elements.
+
+## LSR
+
+Calculate the LSR of both edge and screw dislocations at 0 K. Follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR). Consider the randomness of elements.
 
 ## Dislocation/obstacle interactions
 
