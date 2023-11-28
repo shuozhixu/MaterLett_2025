@@ -1,8 +1,8 @@
-# Al0.3CoCrFeNi
+# Al<sub>0.3</sub>CoCrFeNi
 
 ## Foreword
 
-The purpose of this project is to calculate the basic structural parameters (including lattice parameter and elastic constants), generalized stacking fault energies (GSFE), local slip resistances (LSR), and dislocation/obstacle interaction strengths in random Al0.3CoCrFeNi MPEA.
+The purpose of this project is to calculate the basic structural parameters (including lattice parameter and elastic constants), generalized stacking fault energies (GSFE), local slip resistances (LSR), and dislocation/obstacle interaction strengths in random Al<sub>0.3</sub>CoCrFeNi MPEA.
 
 ## LAMMPS
 
@@ -38,19 +38,19 @@ There are several interatomic potentials for this alloy. Let's focus on the foll
 
 Both potential files can be found in this GitHub repository.
 
-## Build the random structure
+[This paper](https://doi.org/10.1016/j.msea.2021.141253) used an in-house interatomic potential to calculate some properties of Al<sub>_x_</sub>CoCrFeNi, where _x_ varies from 0 to 0.5. Please read it.
 
-Al0.3CoCrFeNi has an FCC lattice, according to [this paper](https://doi.org/10.1016/j.actamat.2022.118600). 
+## Random structure
 
-Build the random structure using Atomsk.
+Al<sub>0.3</sub>CoCrFeNi has an FCC lattice, according to [this paper](https://doi.org/10.1016/j.actamat.2022.118600). 
 
 In this alloy, the CSRO effect has been studied in [a previous paper](https://doi.org/10.1016/j.matdes.2022.111214), so we focus on the random structure. Also, the creep temperature is high (973-1033K), at which the CSRO is negligible.
 
-[This paper](https://doi.org/10.1016/j.msea.2021.141253) used another potential to calculate some properties of this alloy. Please read it.
+Random structures can be built using [Atomsk](https://atomsk.univ-lille.fr).
 
 ## Lattice parameters and elastic constants
 
-Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 1033 K. The last is the maximum temperature used in [the creep experiments](https://doi.org/10.1016/j.actamat.2022.118600). You decide what intermediate temperatures you will study, based on the need of CPFEM.
+Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 1033 K. The last is the maximum temperature used in [the creep experiments](https://doi.org/10.1016/j.actamat.2022.118600).
 
 Follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024).
 
@@ -60,11 +60,16 @@ Calculate the GSFE at 0 K. Follow two previous GitHub repositories, led by [Rome
 
 ## LSR
 
-Calculate the LSR of both edge and screw dislocations at 0 K. Follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR). Consider the randomness of elements.
+Calculate the LSR of both edge and screw dislocations at 0 K. Follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR) and [its associated paper](http://dx.doi.org/10.1016/j.ijplas.2021.103157). Consider the randomness of elements.
 
 ## Dislocation/obstacle interactions
 
-Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the following calcculations at 300 K and 1033 K, respectively. Consider three types of obstacles: void, B2 precipitate, and L12 precipitate. Answer this question: how is the standard deviation in dislocation/obstacle interaction strength compared with that in LSR?
+Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the following calculations at 300 K and 1033 K, respectively. Consider three types of obstacles: void, B2 precipitate, and L12 precipitate.
+
+Answer two questions:
+
+1. how is the standard deviation in dislocation/obstacle interaction strength compared with that in LSR?
+2. how does the orientation of the crystalline precipitates affect the dislocation bypassing stress?
 
 ### Dislocation/void interactions
 
