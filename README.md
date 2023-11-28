@@ -64,12 +64,12 @@ Calculate the LSR of both edge and screw dislocations at 0 K. Follow [a previous
 
 ## Dislocation/obstacle interactions
 
-Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the following calculations at 300 K and 1033 K, respectively. Consider three types of obstacles: void, B2 precipitate, and L12 precipitate.
+Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the following calculations at 300 K and 1033 K, respectively. Consider three types of obstacles: void, B2 precipitate, and L12 precipitate. Check the volume fraction of the precipitates in experiments.
 
 Answer two questions:
 
 1. how is the standard deviation in dislocation/obstacle interaction strength compared with that in LSR?
-2. how does the orientation of the crystalline precipitates affect the dislocation bypassing stress?
+2. how does the orientation of the crystalline precipitates affect the dislocation bypassing stress? Is it possible that, for some orientations, the bypassing stress for a precipitate is larger than that for a void?
 
 ### Dislocation/void interactions
 
