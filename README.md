@@ -56,11 +56,15 @@ Follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_202
 
 ## GSFE
 
-Calculate the GSFE at 0 K. Follow two previous GitHub repositories, led by [Romero](https://github.com/shuozhixu/FLAM2020-GSFE) and [Mubassira](https://github.com/shuozhixu/Modelling_2024), respectively. Consider the randomness of elements.
+Calculate the GSFE at 0 K. The atomsk script, `build_gsfe.sh`, which is used to build the atomistic structure for the GSFE calculations, as well as the corresponding LAMMPS input file, `lmp_gsfe.in`, can be found in the `gsfe/` directory in this GitHub repository.
+
+Follow two previous GitHub repositories, led by [Romero](https://github.com/shuozhixu/FLAM2020-GSFE) and [Mubassira](https://github.com/shuozhixu/Modelling_2024), respectively. Consider the randomness of elements.
 
 ## LSR
 
-Calculate the LSR of both edge and screw dislocations at 0 K. Follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR) and [its associated paper](http://dx.doi.org/10.1016/j.ijplas.2021.103157). Consider the randomness of elements.
+Calculate the LSR of both edge and screw dislocations at 0 K. The atomsk scripts which are used to build the atomistic structures for the LSR calculations, as well as the corresponding LAMMPS input files, can be found in the `lsr/` directory in this GitHub repository.
+
+Follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR) and [its associated paper](http://dx.doi.org/10.1016/j.ijplas.2021.103157). Consider the randomness of elements.
 
 ## Dislocation/obstacle interactions
 
