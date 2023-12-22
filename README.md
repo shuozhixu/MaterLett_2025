@@ -1,8 +1,8 @@
-# Al<sub>0.3</sub>CoCrFeNi
+# Al<sub>0.3</sub>CoCrFeNi: Atomistics
 
 ## Foreword
 
-The purpose of this project is to calculate the basic structural parameters (including lattice parameter and elastic constants), generalized stacking fault energies (GSFE), local slip resistances (LSR), and dislocation/obstacle interaction strengths in random Al<sub>0.3</sub>CoCrFeNi MPEA.
+The purpose of this project is to calculate the basic structural parameters (including lattice parameter and elastic constants), generalized stacking fault energies (GSFE), local slip resistances (LSR), and dislocation/obstacle interaction strengths using atomistic simulations in random Al<sub>0.3</sub>CoCrFeNi MPEA.
 
 ## LAMMPS
 
@@ -19,16 +19,6 @@ Note: if you use sbatch files from [LAMMPSatOU](https://github.com/ANSHURAJ11/LA
 	#SBATCH --time=200:00:00
 	#SBATCH --ntasks=32
 
-## Discussion
-
-Elastic constants and LSR can be used directly in the CPFEM model. But can we use MD to inform the dislocation/precipitate interactions in CPFEM?
-
-If no, we should fit those precipitate-related parameters in CPFEM from experiments.
-
-Regardless, we should run MD simulations of dislocation/obstacle interactions. Otherwise, it won't make a good paper.
-
-Think about this optin: first, run MD simulations to obtain parameters [1,3,5,16] for CPFEM; second, run CPFEM tensile and creep simulations to fit other parameters; third, run CPFEM creep simulations; fourth, finish all other MD simulations and write an MD paper; fifth, finish all CPFEM simulations and write a CPFEM paper (which will cite the MD paper).
-
 ## Interatomic potentials
 
 There are several interatomic potentials for this alloy. Let's focus on the following two:
@@ -38,49 +28,45 @@ There are several interatomic potentials for this alloy. Let's focus on the foll
 
 Both potential files can be found in this GitHub repository.
 
-[This paper](https://doi.org/10.1016/j.msea.2021.141253) used an in-house interatomic potential to calculate some properties of Al<sub>_x_</sub>CoCrFeNi, where _x_ varies from 0 to 0.5. Please read it.
+[This paper](https://doi.org/10.1016/j.msea.2021.141253) used an in-house interatomic potential to calculate some properties of Al<sub>_x_</sub>CoCrFeNi, where _x_ varies from 0 to 0.5. There may be other interatomic potentials for this MPEA.
 
 ## Random structure
 
 Al<sub>0.3</sub>CoCrFeNi has an FCC lattice, according to [this paper](https://doi.org/10.1016/j.actamat.2022.118600). 
 
-In this alloy, the CSRO effect has been studied in [a previous paper](https://doi.org/10.1016/j.matdes.2022.111214), so we focus on the random structure. Also, the creep temperature is high (973-1033K), at which the CSRO is negligible.
+In this alloy, the CSRO effect has been studied in [a previous paper](https://doi.org/10.1016/j.matdes.2022.111214), so we focus on the random structure. Also, the creep temperature is high (973-1033K) in [the experiment](https://doi.org/10.1016/j.actamat.2022.118600), at which the CSRO is negligible.
 
 Random structures can be built using [Atomsk](https://atomsk.univ-lille.fr).
 
 ## Lattice parameters and elastic constants
 
-Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 1033 K. The last is the maximum temperature used in [the creep experiments](https://doi.org/10.1016/j.actamat.2022.118600).
+Calculate its lattice parameters and elastic constants at 0 K, 300 K, ..., 973 K, 1003 K, 1033 K. The last three are the temperatures used in [the creep experiments](https://doi.org/10.1016/j.actamat.2022.118600).
 
-Follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024).
+Calculations follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024).
 
 ## GSFE
 
 Calculate the GSFE at 0 K. The atomsk script, `build_gsfe.sh`, which is used to build the atomistic structure for the GSFE calculations, as well as the corresponding LAMMPS input file, `lmp_gsfe.in`, can be found in the `gsfe/` directory in this GitHub repository.
 
-Follow two previous GitHub repositories, led by [Romero](https://github.com/shuozhixu/FLAM2020-GSFE) and [Mubassira](https://github.com/shuozhixu/Modelling_2024), respectively. Consider the randomness of elements.
+Calculations follow two previous GitHub repositories, led by [Romero](https://github.com/shuozhixu/FLAM2020-GSFE) and [Mubassira](https://github.com/shuozhixu/Modelling_2024), respectively. Consider the randomness of elements.
 
 ## LSR
 
-Calculate the LSR of both edge and screw dislocations at 0 K. The atomsk scripts which are used to build the atomistic structures for the LSR calculations, as well as the corresponding LAMMPS input files, can be found in the `lsr/` directory in this GitHub repository.
+Calculate the LSR of both edge and screw dislocations at 0 K. The atomsk scripts that are used to build the atomistic structures, as well as the LAMMPS input files for the LSR calculations, can be found in the `lsr/` directory in this GitHub repository.
 
-Follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR) and [its associated paper](http://dx.doi.org/10.1016/j.ijplas.2021.103157). Consider the randomness of elements.
+Calculations follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR) and [its associated paper](http://dx.doi.org/10.1016/j.ijplas.2021.103157). Consider the randomness of elements.
 
 ## Dislocation/obstacle interactions
 
-Follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the following calculations at 300 K and 1033 K, respectively. Consider three types of obstacles: void, B2 precipitate, and L12 precipitate. Check the volume fraction of the precipitates in experiments.
+Read [these papers](https://drive.google.com/drive/folders/1Pfg0ZztTd7QkhRMLABwpwrZFWDxasoBQ?usp=sharing) which are on dislocatino/obstacle interactions in metals using atomistic simulations.
+
+Calculations follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the calculations at 5 K. Consider both edge and screw dislocations and three types of obstacles: void, B2 precipitate, and L1<sub>2</sub> precipitate. Let the obstacle radius be 3 nm, as in [this paper](https://doi.org/10.1016/j.ijplas.2020.102819).
 
 Answer two questions:
 
 1. how is the standard deviation in dislocation/obstacle interaction strength compared with that in LSR?
 2. how does the orientation of the crystalline precipitates affect the dislocation bypassing stress? Is it possible that, for some orientations, the bypassing stress for a precipitate is larger than that for a void?
 
-### Dislocation/void interactions
+## Discussion
 
-Read [these papers](https://drive.google.com/drive/folders/1uM6CM59NrHx7o2ZFFyyN85nS_ZRpRsa4?usp=sharing) which are on dislocatino/void interactions in metals using atomistic simulations.
-
-### Dislocation/precipitate interactions
-
-There are many papers on this topic too. For example, a previous paper by [Liaw and colleagues](https://doi.org/10.1016/j.ijplas.2020.102819).
-
-For this alloy, please consider both B2 precipitate and L12 precipitate.
+Elastic constants, LSR, and dislocation/precipitate interactions can be used directly in the CPFEM model. However, [experiments](https://doi.org/10.1016/j.actamat.2022.118600) showed that a typical B2 and L1<sub>2</sub> precipitate, respecitvely, has a diameter of 20--100 nm and 10--80 nm, beyond what are commonly modeled in atomistic simulations. Therefore, we will only use elastic constants and LSR in our CPFEM work.
