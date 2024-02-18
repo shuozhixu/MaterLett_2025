@@ -2,7 +2,7 @@
 
 ## Foreword
 
-The purpose of this project is to calculate the basic structural parameters (including lattice parameter and elastic constants), generalized stacking fault energies (GSFE), local slip resistances (LSR), and dislocation/obstacle interaction strengths using atomistic simulations in random Al<sub>0.3</sub>CoCrFeNi MPEA.
+The purpose of this project is to calculate the basic structural parameters (including lattice parameter and elastic constants), generalized stacking fault energies (GSFE), local slip resistances (LSR), and dislocation/obstacle interaction strengths using atomistic simulations in random Al<sub>0.3</sub>CoCrFeNi MPEA. To provide references, the same properties for Ni are also calculated.
 
 ## LAMMPS
 
@@ -14,7 +14,7 @@ To finish this project, at least two packages are needed:
 - EXTRA-COMPUTE package. This is to calculate the elastic constants at finite temperatures using the Born matrix method. To learn more, please visit [this page](https://docs.lammps.org/Howto_elastic.html
 ) and [this page](https://docs.lammps.org/compute_born_matrix.html). [This paper](https://doi.org/10.1063/1.447221) should be cited for the Born matrix method.
 
-Note: if you use sbatch files from [LAMMPSatOU](https://github.com/ANSHURAJ11/LAMMPSatOU), you may need to change the walltime (default: 12 hours) and/or number of cores (default: 16). For this project, I recommend
+Note: if we use sbatch files from [LAMMPSatOU](https://github.com/ANSHURAJ11/LAMMPSatOU), we may need to change the walltime (default: 12 hours) and/or number of cores (default: 16). For this project, I recommend
 
 	#SBATCH --time=200:00:00
 	#SBATCH --ntasks=32
@@ -23,12 +23,14 @@ Note: if you use sbatch files from [LAMMPSatOU](https://github.com/ANSHURAJ11/LA
 
 There are several interatomic potentials for this alloy. Let's focus on the following two:
 
-- The first one is `AlCoCrFeNi_Zhou04.eam.alloy`. If you use it, cite [this paper](http://dx.doi.org/10.1016/S1359-6454(01)00287-7) and [this paper](http://dx.doi.org/10.1103/PhysRevB.77.214108).
-- The second one is `FeNiCrCoAl-heaweight.setfl`. If you use it, cite [this paper](https://doi.org/10.1557/jmr.2020.294).
+- The first one is `AlCoCrFeNi_Zhou04.eam.alloy`. If one uses it, cite [this paper](http://dx.doi.org/10.1016/S1359-6454(01)00287-7) and [this paper](http://dx.doi.org/10.1103/PhysRevB.77.214108).
+- The second one is `FeNiCrCoAl-heaweight.setfl`. If one uses it, cite [this paper](https://doi.org/10.1557/jmr.2020.294).
 
 Both potential files can be found in this GitHub repository.
 
 [This paper](https://doi.org/10.1016/j.msea.2021.141253) used an in-house interatomic potential to calculate some properties of Al<sub>_x_</sub>CoCrFeNi, where _x_ varies from 0 to 0.5. There may be other interatomic potentials for this MPEA.
+
+Note: after carefully consideration, we decide to use the second potential for the following simulations.
 
 ## Random structure
 
@@ -46,15 +48,15 @@ Calculations follow [a previous GitHub repository](https://github.com/shuozhixu/
 
 ## GSFE
 
-Calculate the GSFE at 0 K. The atomsk script, `build_gsfe.sh`, which is used to build the atomistic structure for the GSFE calculations, as well as the corresponding LAMMPS input file, `lmp_gsfe.in`, can be found in the `gsfe/` directory in this GitHub repository.
+Calculate the GSFE at 0 K. The atomsk script used to build the atomistic structure for the GSFE calculations as well as the corresponding LAMMPS input file, `lmp_gsfe.in`, can be found in the `gsfe/` directory in this GitHub repository.
 
-Calculations follow two previous GitHub repositories, led by [Romero](https://github.com/shuozhixu/FLAM2020-GSFE) and [Mubassira](https://github.com/shuozhixu/Modelling_2024), respectively. Consider the randomness of elements.
+Calculations follow [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024). 20 GSFE curves are calculated due to the randomness of elements.
 
 ## LSR
 
-Calculate the LSR of both edge and screw dislocations at 0 K. The atomsk scripts that are used to build the atomistic structures, as well as the LAMMPS input files for the LSR calculations, can be found in the `lsr/` directory in this GitHub repository.
+Calculate the LSR of both edge and screw dislocations at 0 K. The atomsk scripts that are used to build the atomistic structures as well as the LAMMPS input files for the LSR calculations, can be found in the `lsr/` directory in this GitHub repository.
 
-Calculations follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR) and [its associated paper](http://dx.doi.org/10.1016/j.ijplas.2021.103157). Consider the randomness of elements.
+Calculations follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR) and [its associated paper](http://dx.doi.org/10.1016/j.ijplas.2021.103157). 20 LSR are calculated for an edge and a screw dislocation, respectively, due to the randomness of elements.
 
 ## Dislocation/obstacle interactions
 
