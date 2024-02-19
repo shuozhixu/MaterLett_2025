@@ -58,11 +58,11 @@ Calculate the LSR of both edge and screw dislocations at 0 K. The atomsk scripts
 
 Calculations follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR) and [its associated paper](http://dx.doi.org/10.1016/j.ijplas.2021.103157). 20 LSR are calculated for an edge and a screw dislocation, respectively, due to the randomness of elements.
 
-## Dislocation/obstacle interactions
+## Dislocation glide and dislocation/obstacle interactions
 
-Read [these papers](https://drive.google.com/drive/folders/1Pfg0ZztTd7QkhRMLABwpwrZFWDxasoBQ?usp=sharing) which are on dislocatino/obstacle interactions in metals using atomistic simulations.
+Calculate the glide of and an obstacle interacting with both edge and screw dislocations at 5 K. The atomsk scripts that are used to build the atomistic structures as well as the LAMMPS input files for the LSR calculations, can be found in the `glide/` directory in this GitHub repository.
 
-Calculations follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Run the calculations at 5 K. Consider both edge and screw dislocations and three types of obstacles: void, B2 precipitate, and L1<sub>2</sub> precipitate. Let the obstacle radius be 3 nm, as in [this paper](https://doi.org/10.1016/j.ijplas.2020.102819).
+Calculations follow [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020). Consider both edge and screw dislocations and three types of obstacles: void, B2 precipitate, and L1<sub>2</sub> precipitate. Let the obstacle radius be 0.6 nm, 1.2 nm, 2.4 nm, 3.6 nm, and 4.8 nm, respectively. Read [these papers](https://drive.google.com/drive/folders/1Pfg0ZztTd7QkhRMLABwpwrZFWDxasoBQ?usp=sharing) which are on dislocatino/obstacle interactions in metals using atomistic simulations.
 
 Answer two questions:
 

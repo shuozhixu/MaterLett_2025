@@ -1,0 +1,146 @@
+# LAMMPS input file for shear loading in dislocation-void interaction simulation (constant applied strain rate case)
+# Author: Wurong Jian, wurong@ucsb.edu 
+# If you use this input file, please cite this work
+
+variable	sname index shear
+log		${sname}.log 
+
+variable initTemp equal 5.0             # temperature
+variable rstrain equal 1e7              # strain rate, unit (/s)
+variable energyConv equal 160.21917     # conversion factor
+
+# ------------------------ INITIALIZATION ----------------------------
+units metal         
+dimension 3          
+boundary p s p
+         
+atom_style       atomic    
+
+region mybox block 0 0.1 0 0.1 0 0.1
+create_box 3 mybox
+
+atom_style       atomic
+read_data       data.NiCoCrFeAl_edge
+
+# define potential
+pair_style      eam/alloy
+pair_coeff  * * FeNiCrCoAl-heaweight.setfl Co Fe Ni Al Cr
+
+neighbor        2.5  bin
+neigh_modify    delay 10 every 2 check yes one 30000 page 300000
+
+# -------------------------Loading SETTINGS ---------------------------------
+timestep 0.001
+
+variable tmp0 equal "ylo+9"
+variable ylo0 equal ${tmp0}
+variable tmp1 equal "yhi-9"
+variable yhi0 equal ${tmp1}
+
+variable tmp2 equal "ylo+30"
+variable ylot equal ${tmp2}
+variable tmp3 equal "yhi-30"
+variable yhit equal ${tmp3}                  
+
+region upper block INF INF ${yhi0} INF INF INF units box
+region lower block INF INF INF ${ylo0} INF INF units box   
+region upper2 block INF INF ${yhit} ${yhi0} INF INF units box
+region lower2 block INF INF ${ylo0} ${ylot} INF INF units box 
+
+group  lower region lower
+group  upper region upper
+group  lower2 region lower2
+group  upper2 region upper2
+group  boundary union lower upper lower2 upper2
+group  mobile subtract all boundary     
+
+#compute         pe all pe/atom
+#compute         ke all ke/atom
+#compute         vor all voronoi/atom
+compute         peratom all stress/atom NULL
+
+compute         pmob mobile reduce sum c_peratom[1] c_peratom[2] c_peratom[3] c_peratom[4] c_peratom[5] c_peratom[6]
+variable        mobvol equal lx*ly*lz
+
+variable        prem1 equal c_pmob[1]/(v_mobvol*10000)                       #divided by 10000, GPa
+variable        prem2 equal c_pmob[2]/(v_mobvol*10000)
+variable        prem3 equal c_pmob[3]/(v_mobvol*10000)
+variable        prem4 equal c_pmob[4]/(v_mobvol*10000)
+variable        prem5 equal c_pmob[5]/(v_mobvol*10000)
+variable        prem6 equal c_pmob[6]/(v_mobvol*10000)  
+
+variable        tstrain equal ${rstrain}*step*0.001/1e12
+
+# define the force to apply
+variable nupper equal count(upper)
+print "number of atoms in upper == ${nupper}"
+variable nlower equal count(lower)
+print "number of atoms in lower == ${nlower}" 
+
+# store forces
+fix 1 upper store/force
+fix 2 lower store/force
+
+compute ufxc upper reduce ave f_1[1]
+compute lfxc lower reduce ave f_2[1]
+
+variable avg_velocity_up equal vcm(upper,x)
+variable avg_velocity_low equal vcm(lower,x) 
+
+# define the velocity to apply
+variable tmp4 equal lx
+variable LXX equal ${tmp4}
+variable tmp5 equal ly
+variable LYY equal ${tmp5}
+variable tmp6 equal lz
+variable LZZ equal ${tmp6}
+
+variable velo equal ${rstrain}*(${LYY}-18)/1e12
+variable vel equal ${velo}
+
+variable vx_init_upper equal  v_vel-v_avg_velocity_up
+variable vx_init_lower equal  -v_avg_velocity_low
+
+# define temperature
+compute temp1 mobile temp
+compute temp2 lower2 temp
+compute temp3 upper2 temp
+
+# define velocity on boundary
+velocity upper set v_vx_init_upper 0. 0. sum yes units box
+velocity lower set v_vx_init_lower 0. 0. sum yes units box
+
+# store forces
+variable appforce1 equal -c_ufxc
+variable appforce2 equal -c_lfxc
+
+# define boundary conditions
+fix 3 upper addforce v_appforce1 0.0 0.0
+fix 4 lower addforce v_appforce2 0.0 0.0
+
+# thermostat
+
+fix 5 upper nve
+fix 6 lower nve
+
+fix 7 lower2 nvt temp ${initTemp} ${initTemp} 0.1
+fix_modify 7 temp temp2
+
+fix 8 upper2 nvt temp ${initTemp} ${initTemp} 0.1
+fix_modify 8 temp temp3
+
+fix 9 mobile nve
+
+variable ttime equal step*0.001             #######ps
+
+fix def all print 7500 "${ttime} ${tstrain} ${prem1} ${prem2} ${prem3} ${prem4} ${prem5} ${prem6}" file ${sname}.mobile.txt screen no
+
+thermo 100
+thermo_style custom step cpu etotal pe ke temp c_temp1 c_temp2 c_temp3 press pxx pyy pzz pxy pxz pyz
+
+dump    1 all custom 1500 dump.* id type x y z
+dump_modify     1 sort id
+
+run 1000000
+
+print           "All done"
