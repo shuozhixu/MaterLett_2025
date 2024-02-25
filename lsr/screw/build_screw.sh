@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-rm -f *.lmp
+rm -f data.*
 
 a=3.55
 d=201.638

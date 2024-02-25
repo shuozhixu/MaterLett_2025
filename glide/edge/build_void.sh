@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-rm -f *.lmp
+rm -f data.*
 
 a=3.55
 
@@ -22,11 +22,8 @@ atomsk NiCoCr.cfg -select random 1293502 Ni -sub Ni Fe NiCoCrFe.cfg
 
 atomsk NiCoCrFe.cfg -select random 388050 Ni -sub Ni Al data.NiCoCrFeAl_random_edge.cfg
 
-atomsk data.NiCoCrFeAl_random_edge.cfg -info
-
-#atomsk data.NiCoCrFeAl_random_edge.cfg -remove-atoms select within_sphere 200.0 250.0 150.0 5 data.NiCoCrFeAl_random_void.cfg
 atomsk data.NiCoCrFeAl_random_edge.cfg -select in sphere 0.85*box 0.50*box 0.50*box 48.4 -rmatom select final.cfg lmp
 
 mv final.lmp data.NiCoCrFeAl_edge_void
 
-rm *.cfg *.xyz
+rm *.cfg

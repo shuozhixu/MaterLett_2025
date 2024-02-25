@@ -6,13 +6,13 @@ The purpose of this project is to calculate the basic structural parameters (inc
 
 ## LAMMPS
 
-LAMMPS on [OSCER](http://www.ou.edu/oscer.html) likely does not come with many packages. To build more packages into LAMMPS, please visit [this page](https://docs.lammps.org/Build_package.html).
-
-To finish this project, at least two packages are needed:
+LAMMPS on [OSCER](http://www.ou.edu/oscer.html) likely does not come with many packages. To finish this project, at least two packages are needed:
 
 - MANYBODY package. This is to use the manybody potential such as the embedded-atom method potential.
 - EXTRA-COMPUTE package. This is to calculate the elastic constants at finite temperatures using the Born matrix method. To learn more, please visit [this page](https://docs.lammps.org/Howto_elastic.html
 ) and [this page](https://docs.lammps.org/compute_born_matrix.html). [This paper](https://doi.org/10.1063/1.447221) should be cited for the Born matrix method.
+
+To build LAMMPS with these two packages, please refer to [another project](https://github.com/shuozhixu/Modelling_2024).
 
 Note: if we use sbatch files from [LAMMPSatOU](https://github.com/ANSHURAJ11/LAMMPSatOU), we may need to change the walltime (default: 12 hours) and/or number of cores (default: 16). For this project, I recommend
 
@@ -55,6 +55,8 @@ Calculations follow [a previous GitHub repository](https://github.com/shuozhixu/
 ## LSR
 
 Calculate the LSR of both edge and screw dislocations at 0 K. The atomsk scripts that are used to build the atomistic structures as well as the LAMMPS input files for the LSR calculations, can be found in the `lsr/` directory in this GitHub repository.
+
+Note: two methods are independently used to build the edge dislocation, hence `build_edge1.sh` and `build_edge2.sh`. They correspond to the "remove a half-plane below the glide plane" method and the "superimposing two crystals" method on [this page](https://atomsk.univ-lille.fr/tutorial_Al_edge.php), respectively. It is found that the two methods lead to the same dislocation structure after energy minimization in Ni, but not in the MPEA.
 
 Calculations follow [a previous GitHub repository](https://github.com/shuozhixu/FLAM2020-LSR) and [its associated paper](http://dx.doi.org/10.1016/j.ijplas.2021.103157). 20 LSR are calculated for an edge and a screw dislocation, respectively, due to the randomness of elements.
 
