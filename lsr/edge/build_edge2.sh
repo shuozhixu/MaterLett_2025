@@ -12,9 +12,9 @@ atomsk edge_Ni_111_top.cfg -deform X -0.003086419753 0.0 edge_Ni_1101top_deforme
 
 atomsk edge_Ni_111_bottom.cfg -deform X 0.003105590062 0.0 edge_Ni_111_bottom_deformed.cfg
 
-atomsk --merge Y 2 edge_Ni_111_bottom_deformed.cfg edge_Ni_111_top_deformed.cfg edge_Ni.cfg
+atomsk --merge Y 2 edge_Ni_111_bottom_deformed.cfg edge_Ni_111_top_deformed.cfg Ni.cfg
 
-atomsk edge_Ni.cfg -select random 18478 Ni -sub Ni Co NiCo.cfg
+atomsk Ni.cfg -select random 18478 Ni -sub Ni Co NiCo.cfg
 
 atomsk NiCo.cfg -select random 18478 Ni -sub Ni Cr NiCoCr.cfg
 

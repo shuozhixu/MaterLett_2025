@@ -16,9 +16,9 @@ b=$(echo "scale=5;$a*sqrt(3.)/2." | bc)
 
 atomsk --create fcc $a Ni orient [-110] [111] [11-2] -duplicate 161 82 1 supercell.cfg
 
-atomsk supercell.cfg -dislocation $x $y edge_rm Z Y $b $p -wrap edge_Ni.cfg
+atomsk supercell.cfg -dislocation $x $y edge_rm Z Y $b $p -wrap Ni.cfg
 
-atomsk edge_Ni.cfg -select random 18364 Ni -sub Ni Co NiCo.cfg
+atomsk Ni.cfg -select random 18364 Ni -sub Ni Co NiCo.cfg
 
 atomsk NiCo.cfg -select random 18364 Ni -sub Ni Cr NiCoCr.cfg
 

@@ -12,7 +12,7 @@ y=$(echo "scale=5;$e*$a/3.326" | bc)
 
 b=$(echo "scale=5;$a*sqrt(2.)/2." | bc)
 
-atomsk --create fcc $a Ni orient [-1-12] [111] [-110] -duplicate 99 87 2 supercell.cfg
+atomsk --create fcc $a Ni orient [-1-12] [111] [-110] -duplicate 99 87 120 supercell.cfg
 
 atomsk supercell.cfg -dislocation $x $y screw z y $b dis.imd
 
@@ -26,14 +26,14 @@ atomsk screw_Ni_40nm_pad.xsf screw_Ni_40nm_pad.cfg
 
 awk -v var="Ni" 'NR==16 {$1=var} {print}' screw_Ni_40nm_pad.cfg > Ni.cfg
 
-atomsk Ni.cfg -select random 24036 Ni -sub Ni Co NiCo.cfg
+atomsk Ni.cfg -select random 1293502 Ni -sub Ni Co NiCo.cfg
 
-atomsk NiCo.cfg -select random 24036 Ni -sub Ni Cr NiCoCr.cfg
+atomsk NiCo.cfg -select random 1293502 Ni -sub Ni Cr NiCoCr.cfg
 
-atomsk NiCoCr.cfg -select random 24037 Ni -sub Ni Fe NiCoCrFe.cfg
+atomsk NiCoCr.cfg -select random 1293502 Ni -sub Ni Fe NiCoCrFe.cfg
 
-atomsk NiCoCrFe.cfg -select random 7211 Ni -sub Ni Al data.NiCoCrFeAl_random_screw.cfg lmp
+atomsk NiCoCrFe.cfg -select random 388050 Ni -sub Ni Al data.NiCoCrFeAl_random_screw.cfg lmp
 
-mv data.NiCoCrFeAl_random_screw.lmp data.NiCoCrFeAl_random_screw
+mv data.NiCoCrFeAl_random_screw.lmp data.NiCoCrFeAl_screw
 
-rm -f *.cfg *.imd *.xsf 
+rm -f *.cfg *.imd *.xsf

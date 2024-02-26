@@ -12,16 +12,18 @@ atomsk edge_Ni_110_top.cfg -deform X -0.003086419753 0.0 edge_Ni_110_top_deforme
 
 atomsk edge_Ni_110_bottom.cfg -deform X 0.003105590062 0.0 edge_Ni_110_bottom_deformed.cfg
 
-atomsk --merge Y 2 edge_Ni_110_bottom_deformed.cfg edge_Ni_110_top_deformed.cfg edge_Ni.cfg
+atomsk --merge Y 2 edge_Ni_110_bottom_deformed.cfg edge_Ni_110_top_deformed.cfg Ni.cfg
 
-atomsk edge_Ni.cfg -select random 1293502 Ni -sub Ni Co NiCo.cfg
+atomsk Ni.cfg -select random 1293502 Ni -sub Ni Co NiCo.cfg
 
 atomsk NiCo.cfg -select random 1293502 Ni -sub Ni Cr NiCoCr.cfg
 
 atomsk NiCoCr.cfg -select random 1293502 Ni -sub Ni Fe NiCoCrFe.cfg
 
-atomsk NiCoCrFe.cfg -select random 388050 Ni -sub Ni Al data.NiCoCrFeAl_random_edge.cfg lmp
+atomsk NiCoCrFe.cfg -select random 388050 Ni -sub Ni Al data.NiCoCrFeAl_random_edge.cfg
 
-mv data.NiCoCrFeAl_random_edge.lmp data.NiCoCrFeAl_edge
+atomsk data.NiCoCrFeAl_random_edge.cfg -select in sphere 0.85*box 0.50*box 0.50*box 48.4 -rmatom select final.cfg lmp
+
+mv final.lmp data.NiCoCrFeAl_edge_void
 
 rm *.cfg
