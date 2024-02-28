@@ -141,6 +141,6 @@ thermo_style custom step cpu etotal pe ke temp c_temp1 c_temp2 c_temp3 press pxx
 dump    1 all custom 1500 dump.* id type x y z
 dump_modify     1 sort id
 
-run 1000000
+run 2000000
 
 print           "All done"
