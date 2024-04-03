@@ -36,7 +36,7 @@ Note: after carefully consideration, we decide to use the second potential for t
 
 Al<sub>0.3</sub>CoCrFeNi has an FCC lattice, according to [this paper](https://doi.org/10.1016/j.actamat.2022.118600). 
 
-In this alloy, the CSRO effect has been studied in [a previous paper](https://doi.org/10.1016/j.matdes.2022.111214), so we focus on the random structure. Also, the creep temperature is high (973-1033K) in [the experiment](https://doi.org/10.1016/j.actamat.2022.118600), at which the CSRO is negligible.
+In this alloy, the CSRO effect has been studied by [Sun et al.](https://doi.org/10.1016/j.matdes.2022.111214) and [Hasan et al.](https://doi.org/10.1016/j.commatsci.2024.112980), so we focus on the random structure. Also, the creep temperature is high (973--1033K) in [the experiment](https://doi.org/10.1016/j.actamat.2022.118600), at which the CSRO is negligible.
 
 Random structures can be built using [Atomsk](https://atomsk.univ-lille.fr).
 
