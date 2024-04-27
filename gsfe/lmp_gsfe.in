@@ -29,7 +29,7 @@ variable        tmp1 equal "zhi-6"
 variable        zhi0 equal ${tmp1}
 variable        tmp2 equal "(zlo+zhi)/2"
 
-variable        latparam equal 3.5564             #variable 
+variable        latparam equal 3.55             #variable 
 
 variable        d equal 1
 variable        zmid equal ${tmp2}+${latparam}/sqrt(3.)*(${d}-10)
@@ -48,6 +48,8 @@ region		lower block INF INF INF INF INF ${zmid} units box      #variable
 group		top region upper
 group		bot region lower
 
+# ------------------- DISPLACEMENT -----------------------
+
 variable        Nslip equal 1                   #the number of periods
 variable        stepn equal 100
 variable        stepm equal ${Nslip}*${stepn}+1
@@ -56,7 +58,9 @@ variable        area equal lx*ly
 
 variable        disp equal (${latparam}*sqrt(6)/2)/${stepn}
 
-displace_atoms  bot move 0 ${disp} 0 units box
+variable        b equal 0/64*(${latparam}*sqrt(2)/2)
+
+displace_atoms  bot move ${b} ${disp} 0 units box
 
 variable        a loop ${stepm}
 label           loopa
