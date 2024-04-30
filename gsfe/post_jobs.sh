@@ -6,7 +6,7 @@ cd 0
 awk -v c=1 'NR==1 { b=$2 } { printf( "%0.5f\t%0.7f\n", $1,( $2-b ) * c ) }' gsfe_ori > gsfe
 cd ..
 
-for i in `seq 0 1 2`
+for i in `seq 0 1 64`
 do
         a=0.015625
         a=`echo "scale=6;$a*$i"|bc`
