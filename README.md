@@ -1,4 +1,4 @@
-# Al<sub>0.3</sub>CoCrFeNi: Atomistics
+# Al<sub>0.3</sub>CoCrFeNi: Atomistics: Dislocations
 
 ## Foreword
 
