@@ -6,7 +6,7 @@ The purpose of this project is to simulate dislocation glide in an obstacle-free
 
 ## LAMMPS
 
-Following [another project](https://github.com/shuozhixu/Modelling_2024), we can build LAMMPS with the MANYBODY package and submit jobs on [OSCER](http://www.ou.edu/oscer.html).
+Following [a related project](https://github.com/shuozhixu/HEAM_2025), we can build LAMMPS with the MANYBODY package and submit jobs on [OSCER](http://www.ou.edu/oscer.html).
 
 ## Interatomic potential
 
