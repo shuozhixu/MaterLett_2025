@@ -2,7 +2,7 @@
 
 ## Foreword
 
-The purpose of this project is to siimulate dislocation glide in an obstacle-free lattice using atomistic simulations in random Al<sub>0.3</sub>CoCrFeNi multi-principal element alloy. To provide references, the same properties for Ni are also calculated in selected cases.
+The purpose of this project is to simulate dislocation glide in an obstacle-free lattice using atomistic simulations in random Al<sub>0.3</sub>CoCrFeNi multi-principal element alloy. To provide references, dislocation glide in Ni is also studied.
 
 ## LAMMPS
 
@@ -14,7 +14,7 @@ Upon comparing two different interatomic potentials in [another project](https:/
 
 ## Dislocation glide
 
-Calculate the glide of an edge or a screw dislocation at 5 K. The atomsk scripts that are used to build the atomistic structures as well as the LAMMPS input files for the LSR calculations, can be found in this GitHub repository. The input files were modified from  [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020).
+Calculate the glide of an edge or a screw dislocation at 5 K. The atomsk scripts that are used to build the atomistic structures as well as the LAMMPS input files can be found in this GitHub repository. The input files were modified from [a previous GitHub repository](https://github.com/wrj2018/MSMSE_2020).
 
 ## Reference
 
