@@ -20,4 +20,4 @@ Calculate the glide of an edge or a screw dislocation at 5 K. The atomsk scripts
 
 If you use any files from this GitHub repository, please cite
 
-- Shuozhi Xu, Wu-Rong Jian, Irene J. Beyerlein, [Ideal simple shear strengths of two HfNbTaTi-based quinary refractory multi-principal element alloys](http://dx.doi.org/10.1063/5.0116898), APL Mater. 10 (2022) 111107
+- Anshu Raj, Jamieson Brechtl, Subah Mubassira, Peter K. Liaw, Shuozhi Xu, [Dislocation glide in Al<sub>0.3</sub>CoCrFeNi: Insights from molecular dynamics and statistical analysis](https://doi.org/10.1016/j.matlet.2025.139038), Mater. Lett. (in press)
