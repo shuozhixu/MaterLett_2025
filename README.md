@@ -20,4 +20,4 @@ Calculate the glide of an edge or a screw dislocation at 5 K. The atomsk scripts
 
 If you use any files from this GitHub repository, please cite
 
-- Anshu Raj, Jamieson Brechtl, Subah Mubassira, Peter K. Liaw, Shuozhi Xu, [Dislocation glide in Al<sub>0.3</sub>CoCrFeNi: Insights from molecular dynamics and statistical analysis](https://doi.org/10.1016/j.matlet.2025.139038), Mater. Lett. (in press)
+- Anshu Raj, Jamieson Brechtl, Subah Mubassira, Peter K. Liaw, Shuozhi Xu, [Dislocation glide in Al<sub>0.3</sub>CoCrFeNi: Insights from molecular dynamics and statistical analysis](https://doi.org/10.1016/j.matlet.2025.139038), Mater. Lett. 400 (2025) 139038
